@@ -5,6 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2/log"
 	"github.com/gofiber/template/html/v2"
 	"github.com/skip2/go-qrcode"
+	"os"
 )
 
 func main() {
@@ -34,7 +35,7 @@ func main() {
 		return c.Send(png)
 	})
 
-	err := app.Listen("0.0.0.0:8080")
+	err := app.Listen("0.0.0.0:" + os.Getenv("PORT"))
 
 	if err != nil {
 		log.Fatal("Something went very wrong.")
