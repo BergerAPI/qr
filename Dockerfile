@@ -12,4 +12,4 @@ RUN go build -o qr
 
 EXPOSE 8080
 
-CMD [ "qr" ]
+CMD [ "./qr" ]
