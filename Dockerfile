@@ -7,6 +7,7 @@ RUN go mod download
 
 COPY *.go ./
 
+RUN go get qr
 RUN go build -o qr
 
 EXPOSE 8080
