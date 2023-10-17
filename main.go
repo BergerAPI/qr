@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/log"
 	"github.com/gofiber/template/html/v2"
 	"github.com/skip2/go-qrcode"
 )
@@ -33,5 +34,9 @@ func main() {
 		return c.Send(png)
 	})
 
-	app.Listen(":3000")
+	err := app.Listen(":8080")
+
+	if err != nil {
+		log.Fatal("Something went very wrong.")
+	}
 }
