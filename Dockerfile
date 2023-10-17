@@ -6,6 +6,7 @@ COPY go.mod ./
 RUN go mod download
 
 COPY * ./
+COPY views/* ./views
 
 RUN go get qr
 RUN go build -o qr

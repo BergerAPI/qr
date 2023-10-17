@@ -34,7 +34,7 @@ func main() {
 		return c.Send(png)
 	})
 
-	err := app.Listen(":8080")
+	err := app.Listen("0.0.0.0:8080")
 
 	if err != nil {
 		log.Fatal("Something went very wrong.")
