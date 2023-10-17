@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="max-w-screen-md m-auto mt-32">
+    <div class="text-center mb-8">
+        <h1 class="text-3xl">Easy QR-Code API</h1>
+        <p class="text-xl">Implement QR Codes into your app without any effort!</p>
+    </div>
+
+    <div class="prone w-full mb-8">
+        <p>Use this endpoint to generate qr-code images. The data is provided by the <code>data</code> query parameter.</p>
+
+        <code class="bg-slate-200">
+            https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol
+        </code>
+
+        <br />
+        <br />
+
+        <p>To change the size of the QR Code you can use the size parameter. The default size is 256.</p>
+
+        <code class="bg-slate-200">
+            https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol?size=512
+        </code>
+
+        <br />
+        <br />
+
+        <p>You can also directly embed the QR code into HTML using the <code>img</code> tag.</p>
+
+        <code class="bg-slate-200">
+            &lt;img src="https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol"&gt;
+        </code>
+    </div>
+
+    <a href="https://niclas.lol/">
+        <img alt="A QR-Code leading to https://niclas.lol/" src="https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol?size=512">
+    </a>
+</div>
+</body>
+</html>
