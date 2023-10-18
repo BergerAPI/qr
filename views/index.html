@@ -21,6 +21,11 @@
         let image = document.createElement("img");
         image.src = "https://qr.niclas.lol/api/generate?data=" + encodeURIComponent(value);
         image.alt = "A qr-code carrying the value of the entered value."
+        image.id = "img"
+
+        // Removing the old generated image
+        if (document.getElementById("img") !== null)
+            document.getElementById("img").remove()
 
         result.appendChild(image)
         result.classList.remove("hidden")
