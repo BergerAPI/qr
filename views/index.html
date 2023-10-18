@@ -2,25 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>QR Code Generator</title>
+    <title>Simple and Easy QR Code Generator</title>
+    <meta name="description"
+          content="Generate QR codes effortlessly with our user-friendly QR Code Generator! Our API makes it a breeze for developers to seamlessly integrate QR code generation into their applications. Simplify the process and enhance user experience today!"/>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
+<script>
+    const generate = () => {
+        const result = document.getElementById("result")
+        const data = document.getElementById("data")
+        const value = data.value
+
+        if (value.length < 1)
+            return
+
+        // Appending an image to the result block
+        let image = document.createElement("img");
+        image.src = "https://qr.niclas.lol/api/generate?data=" + encodeURIComponent(value);
+        image.alt = "A qr-code carrying the value of the entered value."
+
+        result.appendChild(image)
+        result.classList.remove("hidden")
+    }
+</script>
+
 <body>
-<div class="max-w-screen-md m-auto mt-32">
+<div class="p-2 mt-16 md:p-0 md:max-w-screen-md md:m-auto md:mt-32">
     <div class="text-center mb-8">
-        <h1 class="text-3xl">Easy QR-Code API</h1>
-        <p class="text-xl">Implement QR Codes into your app without any effort!</p>
+        <h1 class="text-3xl">Easy QR-Code Generator</h1>
+        <p class="text-xl">Create QR Codes easily and implement into your app without any effort!</p>
     </div>
 
-    <div class="prone w-full mb-8">
-        <p>Use this endpoint to generate qr-code images. The data is provided by the <code>data</code> query parameter.</p>
+    <div class="mb-8 w-full">
+        <p class="sr-only">This form will generate a qr-code for you.</p>
+
+        <div class="grid grid-cols-3 gap-2">
+            <div class="col-span-2">
+                <label class="sr-only" for="data">Your link/data</label>
+                <input aria-description="Enter the link or data you want to create a QR-Code for."
+                       class="w-full p-2 border border-slate-500" type="text" placeholder="Your link/data" id="data">
+            </div>
+            <button aria-description="By clicking this you will request generation of a QR-Code. It will be appended to the website."
+                    class="col-span-1 p-2 border border-slate-500" type="submit" onclick="generate()">Generate
+            </button>
+        </div>
+
+        <div id="result" class="hidden w-full flex justify-center">
+            <!-- This is where the QR-Code image will be appended -->
+        </div>
+    </div>
+
+    <div class="prone-xl w-full mb-8">
+        <h2 class="text-lg font-bold">What is an QR-Code?</h2>
+
+        <p>QR codes, short for Quick Response codes, are two-dimensional barcodes that store information in a visually
+            structured pattern. They have become a vital tool for sharing data and engaging users. Whether you're
+            interested in generating QR codes or simply using them, QR codes offer a versatile and efficient way to
+            transmit information.</p>
+
+        <h2 class="text-lg font-bold">History of QR-Codes</h2>
+
+        <p>The history of QR codes, or Quick Response codes, dates back to their invention in 1994 by a Japanese company
+            called Denso Wave. Originally developed for tracking automotive parts, QR codes have since evolved into a
+            versatile tool for generating QR codes that store a wide range of information. These square, pixelated
+            symbols have transformed the way we access data, making them a fundamental part of modern technology.</p>
+
+        <hr class="my-4 md:my-2">
+
+        <h2 class="text-lg font-bold">How to use the API?</h2>
+
+        <p>Use this endpoint to generate qr-code images. The data is provided by the <code>data</code> query parameter.
+        </p>
 
         <code class="bg-slate-200">
             https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol
         </code>
 
-        <br />
-        <br />
+        <br/>
+        <br/>
 
         <p>To change the size of the QR Code you can use the size parameter. The default size is 256.</p>
 
@@ -28,8 +88,8 @@
             https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol?size=512
         </code>
 
-        <br />
-        <br />
+        <br/>
+        <br/>
 
         <p>You can also directly embed the QR code into HTML using the <code>img</code> tag.</p>
 
@@ -39,7 +99,8 @@
     </div>
 
     <a href="https://niclas.lol/">
-        <img alt="A QR-Code leading to https://niclas.lol/" src="https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol?size=512">
+        <img alt="A QR-Code leading to https://niclas.lol/"
+             src="https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol?size=512">
     </a>
 </div>
 </body>

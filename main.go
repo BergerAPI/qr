@@ -29,8 +29,12 @@ func main() {
 		png, err := qrcode.Encode(queries["data"], qrcode.Medium, c.QueryInt("size", 256))
 
 		if err != nil {
+			log.Info("Failed generating QR-Code.")
+
 			return c.Status(500).SendString("Failed generating the QR Code.")
 		}
+
+		log.Info("Successfully generated QR-Code.")
 
 		return c.Send(png)
 	})
