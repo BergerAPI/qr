@@ -14,3 +14,6 @@ To change the size of the QR Code you can use the size parameter. The default si
 You can also directly embed the QR code into HTML using the ``img`` tag.
 
 ```<img src="https://qr.niclas.lol/api/generate?data=https%3A%2F%2Fniclas.lol>```
+
+# Environment
+You need 3 variables: `PORT`, `AXIOM_TOKEN`, `AXIOM_ORD_ID`

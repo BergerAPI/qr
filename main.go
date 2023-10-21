@@ -7,6 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/log"
 	"github.com/gofiber/template/html/v2"
+	_ "github.com/joho/godotenv/autoload"
 	"github.com/skip2/go-qrcode"
 	"os"
 	"time"
@@ -48,7 +49,7 @@ func main() {
 			return c.Status(500).SendString("Failed generating the QR Code.")
 		}
 
-		if _, err = client.IngestEvents(ctx, "QR", []axiom.Event{
+		if _, err = client.IngestEvents(ctx, "qr", []axiom.Event{
 			{ingest.TimestampField: time.Now(), "data": queries["data"]},
 		}); err != nil {
 			log.Fatal(err)
